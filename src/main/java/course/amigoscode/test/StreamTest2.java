@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamTest2 {
     private static List<Person> personList = new ArrayList<>(List.of(
@@ -88,6 +89,12 @@ public class StreamTest2 {
             System.out.println();
         }));
 
+        String text = "The code was very well written.";
+        String[] split = text.split(" ");
+
+        Stream.of(split)
+                .sorted(Comparator.comparing(String::length))
+                .forEach(s -> System.out.print(s + " "));
 
     }
 }
