@@ -6,6 +6,7 @@ import course.amigoscode.domain.enums.Gender;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamTest2 {
@@ -52,5 +53,17 @@ public class StreamTest2 {
                 .average()
                 .ifPresent(System.out::println);
 
+
+        int sum = personList.stream()
+                .mapToInt(Person::getAge)
+                .sum();
+
+        System.out.println(sum);
+
+
+        Map<Gender, List<Person>> collect1 = personList.stream()
+                .collect(Collectors.groupingBy(Person::getGender));
+
+        System.out.println(collect1);
     }
 }
