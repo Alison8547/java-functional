@@ -65,5 +65,29 @@ public class StreamTest2 {
                 .collect(Collectors.groupingBy(Person::getGender));
 
         System.out.println(collect1);
+
+        Integer reduce = personList.stream()
+                .map(Person::getAge)
+                .reduce(0, (x, y) -> x + y, Integer::sum);
+
+        System.out.println(reduce);
+
+        personList.stream()
+                .max(Comparator.comparing(Person::getAge))
+                .ifPresent(System.out::println);
+
+        personList.stream()
+                .min(Comparator.comparing(Person::getAge))
+                .ifPresent(System.out::println);
+
+        System.out.println();
+
+        collect1.forEach(((gender, people) -> {
+            System.out.println("--------" + gender + "--------");
+            people.forEach(System.out::println);
+            System.out.println();
+        }));
+
+
     }
 }
