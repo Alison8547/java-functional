@@ -13,7 +13,9 @@ import java.util.stream.Stream;
 public class StreamTest2 {
     private static List<Person> personList = new ArrayList<>(List.of(
             new Person("Alison", Gender.MALE, 25),
+            new Person("Dash", Gender.MALE, 25),
             new Person("Bruna", Gender.FEMALE, 18),
+            new Person("Marta", Gender.FEMALE, 18),
             new Person("Saulo", Gender.MALE, 30),
             new Person("Rafaela", Gender.FEMALE, 20),
             new Person("Diego", Gender.MALE, 40),
@@ -96,5 +98,10 @@ public class StreamTest2 {
                 .sorted(Comparator.comparing(String::length))
                 .forEach(s -> System.out.print(s + " "));
 
+
+        Map<Integer, List<Person>> collect2 = personList.stream()
+                .collect(Collectors.groupingBy(Person::getAge));
+
+        System.out.println(collect2);
     }
 }
