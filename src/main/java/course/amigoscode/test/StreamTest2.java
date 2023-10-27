@@ -112,5 +112,13 @@ public class StreamTest2 {
                 .toList();
 
         System.out.println(listDistinct);
+
+
+        long count = integerList.parallelStream()
+                .distinct()
+                .filter(integer -> integer % 2 == 0)
+                .count();
+
+        System.out.println(count);
     }
 }
