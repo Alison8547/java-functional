@@ -103,5 +103,14 @@ public class StreamTest2 {
                 .collect(Collectors.groupingBy(Person::getAge));
 
         System.out.println(collect2);
+
+        List<Integer> integerList = new ArrayList<>(List.of(1, 2, 2, 33, 33, 55, 43, 21, 67, 145, 44, 55));
+
+        List<Integer> listDistinct = integerList.stream()
+                .filter(integer -> integer % 2 == 1)
+                .distinct()
+                .toList();
+
+        System.out.println(listDistinct);
     }
 }
