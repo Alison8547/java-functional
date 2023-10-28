@@ -125,5 +125,13 @@ public class StreamTest2 {
         integerList.stream()
                 .reduce(Integer::sum)
                 .ifPresent(System.out::println);
+
+        List<Person> list = personList.stream()
+                .sorted(Comparator.comparing(Person::getAge))
+                .toList();
+
+        for (Person person : list){
+            System.out.println(person);
+        }
     }
 }
