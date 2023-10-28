@@ -120,5 +120,10 @@ public class StreamTest2 {
                 .count();
 
         System.out.println(count);
+
+
+        integerList.stream()
+                .reduce(Integer::sum)
+                .ifPresent(System.out::println);
     }
 }
