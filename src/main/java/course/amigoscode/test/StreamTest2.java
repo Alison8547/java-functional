@@ -130,8 +130,15 @@ public class StreamTest2 {
                 .sorted(Comparator.comparing(Person::getAge))
                 .toList();
 
-        for (Person person : list){
+        for (Person person : list) {
             System.out.println(person);
         }
+
+        List<Character> list1 = personList.stream()
+                .map(Person::getName)
+                .map(s -> s.charAt(s.length() - 1))
+                .toList();
+
+        System.out.println(list1);
     }
 }
